@@ -1,0 +1,47 @@
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from .decorators import unauthenticated_user
+from django.contrib.auth.decorators import login_required
+from .forms import CreateUserForm
+
+@login_required()
+def home(request):
+    return render(request, "authentication/home.html")
+
+@unauthenticated_user
+def signup(request):
+    form = CreateUserForm()
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'A conta foi criada com sucesso')
+
+    context = {'form':form}
+    return render(request, "authentication/signup.html", context)
+
+@unauthenticated_user
+def signin(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            nome = user.first_name
+            return redirect('home')
+        else:
+            messages.info(request, "Usuário ou senha errados")
+        
+    return render(request, "authentication/signin.html")
+
+def signout(request):
+    logout(request)
+    messages.success(request, "Deslogado")
+    return redirect('signin')
