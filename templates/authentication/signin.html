@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>Bem vindo a página de login</title>
+    <title>Fleury Treinamento Corporativo</title>
     
     <style>
         body{
@@ -16,6 +16,21 @@
     </style>  
 </head>
 <body>
+
+    <style>
+        .login{ 
+         position:relative;
+        margin: 20px 0;
+         }
+
+       .login label{
+        position:absolute
+         left: 0;
+        bottom: 5px;
+        }
+
+         </style>
+
     {% for message in messages %}
     <div class="alert alert-{{ message.tags}} alert-dismissible fade show" role="alert">
         <strong>AVISO:</strong> {{ message }}
@@ -24,17 +39,30 @@
         </button>
     </div>
     {% endfor %}
-    <h3>Login</h3>
+    
+    <div> <center>
+    
+    <!-- <h3>Bem vindo ao treinamento Fleury</h3> -->
+    <img src="../static/images/logogrupo.png" height="400" width="400" />
     <form action="/signin/" method="POST">
     {% csrf_token %}
+        <div class="login">
         <label for="">Nome de usuário</label>
+        <img src="https://icon-library.com/images/person-icon-red/person-icon-red-14.jpg" height="30" width="30" />
         <input type="text" id="username" name="username" required>
+        </div>
+    
         <br>
-        <label for="">Senha</label>
+        <br>
+        <!-- <label for="">Senha</label> -->
+        <img src="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564389-lock-red_81516.png" height="30" width="30"/>
         <input type="password" id="password" name="password" required>
-        <button type="submit"><a href="/signup">Criar conta</a></button>
         <br>
-        <button type="submit">Logar</button>
+        <br>
+        <button type="submit">Entrar</button> <button type="submit"><a href="/signup">Criar conta</a></button>
+        
+    </center>
     </form>
+    </div>
 </body>
 </html>
