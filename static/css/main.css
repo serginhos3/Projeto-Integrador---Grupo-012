@@ -21,13 +21,3 @@ body{
     margin-left: 30px;
 }
 
-.login{ 
- position: relative;
-   margin: 20px 0;
-    }
-
-  .login {
-   position: absolute;
-   left: 0;
-   bottom: 5px;
-   }

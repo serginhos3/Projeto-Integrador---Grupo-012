@@ -13,23 +13,24 @@
         body{
           background-color: #ebeff5;
         }
+
+        #password,
+        #username{
+            border: none;
+            border-bottom: 1px solid #848484;
+            background: #00000000;
+        }
+
+        #password:focus,
+        #username:focus{
+            border: none;
+            outline:none;
+            border-bottom: 1px solid #848484;
+        }
+        
     </style>  
 </head>
 <body>
-
-    <style>
-        .login{ 
-         position:relative;
-        margin: 20px 0;
-         }
-
-       .login label{
-        position:absolute
-         left: 0;
-        bottom: 5px;
-        }
-
-         </style>
 
     {% for message in messages %}
     <div class="alert alert-{{ message.tags}} alert-dismissible fade show" role="alert">
@@ -47,19 +48,18 @@
     <form action="/signin/" method="POST">
     {% csrf_token %}
         <div class="login">
-        <label for="">Nome de usuário</label>
         <img src="https://icon-library.com/images/person-icon-red/person-icon-red-14.jpg" height="30" width="30" />
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" required placeholder="Nome de usuário">
         </div>
     
         <br>
         <br>
-        <!-- <label for="">Senha</label> -->
         <img src="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564389-lock-red_81516.png" height="30" width="30"/>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" required placeholder="Senha">
         <br>
         <br>
-        <button type="submit">Entrar</button> <button type="submit"><a href="/signup">Criar conta</a></button>
+        <button class="btn btn-success" type="submit">Entrar</button> 
+        <button class="btn btn-link text-info" type="button"><a class="text-info" href="/signup">Criar conta</a></button>
         
     </center>
     </form>
