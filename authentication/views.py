@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .decorators import unauthenticated_user
@@ -17,7 +17,10 @@ def signup(request):
     if request.method == "POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            group = Group.objects.get(name=request.POST.get('grupos'))
+            user.groups.add(group)
+
             messages.success(request, 'A conta foi criada com sucesso')
 
     context = {'form':form}
@@ -34,7 +37,6 @@ def signin(request):
 
         if user is not None:
             login(request, user)
-            nome = user.first_name
             return redirect('home')
         else:
             messages.info(request, "Usuário ou senha errados")
@@ -45,3 +47,8 @@ def signout(request):
     logout(request)
     messages.success(request, "Deslogado")
     return redirect('signin')
+
+@login_required()
+def administrador(request):
+    ##context = {'form': PdfForm()}
+    return render(request, "authentication/administrador.html")

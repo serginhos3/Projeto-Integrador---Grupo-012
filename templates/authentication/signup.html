@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <title>Fleury Treinamento Corporativo - Cadastro</title>
+    <title>Cadastrar</title>
     <style>
         body{
           background-color: #ebeff5;
@@ -16,8 +16,7 @@
     </style>  
 </head>
 <body>
-
-    <h4 class=" display-3  w-100 text-center">Crie seu acesso</h4>
+    <h3>Cadastro</h3>
     {% for message in messages %}
         <p>{{message}}</p>
     {% endfor%}
@@ -59,6 +58,12 @@
         </div>
         {{form.password2}}
     </div>
+    <div class="input-group mb-2">
+        <select name="grupos" id="grupos">
+            <option value="admin">Administrador</option>
+            <option value="funcionario">Funcionário</option>
+        </select>
+    </div>
     {{form.errors}}
 
        <div class="d-flex justify-content-center mt-2 login_container">
@@ -70,7 +75,7 @@
 		form_fields[1].placeholder='Nome';
 		form_fields[2].placeholder='Sobrenome';
 		form_fields[3].placeholder='Nome de usuário';
-		form_fields[4].placeholder='Email';
+		form_fields[4].placeholder='Email.';
         form_fields[5].placeholder='Senha';
         form_fields[6].placeholder='Confirme sua senha';
         
