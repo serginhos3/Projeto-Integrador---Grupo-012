@@ -43,31 +43,12 @@
           <li class="list-group-item"><a href="/">Início</a></li>
           {% for group in user.groups.all %}
             {% if group.name == 'admin' %}
-              <li class="list-group-item"><a href="">Admin</a></li>
+              <li class="list-group-item"><a href="/administrador">Admin</a></li>
             {% endif %}
           {% endfor %}
-          <li class="list-group-item"><a href="/treinamentos">Treinamentos</a></li>
+          <li class="list-group-item"><a href="">Treinamentos</a></li>
         </ul>
       </div>
-    </div>
-    <div class="col-md-8">
-      <form action="/administrador/" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="input-group mb-2">
-          <label for="">Nome do treinamento</label>
-          {{form.filename}}
-        </div>
-        <div class="input-group mb-2">
-          <label for="">Descrição</label>
-          {{form.descrip}}
-        </div>
-        <div class="input-group mb-2">
-          {{form.pdf}}
-        </div>
-        <div class="d-flex justify-content-center mt-2 login_container">
-          <input class="btn login_btn" type="submit" value="Upload files">
-        </div>
-      </form>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

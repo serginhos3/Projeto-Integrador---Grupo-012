@@ -25,9 +25,9 @@
               Dropdown
             </a>
             <ul class="dropdown-menu ms-auto dropdown-menu-end">
-              <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-              <li><a class="dropdown-item" href="#">Termos de uso</a></li>
-              <li><a class="dropdown-item" href="#">Suporte da plataforma</a></li>
+              <li><a class="dropdown-item" href="/perfil">Editar perfil</a></li>
+              <li><a class="dropdown-item" href="/termos">Termos de uso</a></li>
+              <li><a class="dropdown-item" href="/suporte">Suporte da plataforma</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/signout">Sair</a></li>
             </ul>
@@ -40,13 +40,13 @@
     <div class="col-md-3">
       <div class="card rounded-0" style="width: 18rem;">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Início</li>
+          <li class="list-group-item"><a href="">Início</a></li>
           {% for group in user.groups.all %}
             {% if group.name == 'admin' %}
               <li class="list-group-item"><a href="/administrador">Admin</a></li>
             {% endif %}
           {% endfor %}
-          <li class="list-group-item">Treinamentos</li>
+          <li class="list-group-item"><a href="/treinamentos">Treinamentos</a></li>
         </ul>
       </div>
     </div>

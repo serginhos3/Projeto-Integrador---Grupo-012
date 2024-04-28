@@ -52,3 +52,19 @@ def signout(request):
 def administrador(request):
     ##context = {'form': PdfForm()}
     return render(request, "authentication/administrador.html")
+
+@login_required()
+def treinamentos(request):
+    return render(request, "authentication/treinamentos.html")
+
+@login_required()
+def perfil(request):
+    return render(request, "authentication/perfil.html")
+
+@login_required()
+def termos(request):
+    return render(request, "authentication/termos.html")
+
+@login_required()
+def suporte(request):
+    return render(request, "authentication/suporte.html")
