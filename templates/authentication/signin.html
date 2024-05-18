@@ -54,7 +54,6 @@
     {% endfor %}
 
     <div class="formulario">
-        <!-- <h3>Bem vindo ao treinamento Fleury</h3> -->
         <img src="../static/images/logogrupo.png" height="400" width="400" />
         <form action="/signin/" method="POST">
             {% csrf_token %}
@@ -71,7 +70,9 @@
             <br>
             <br>
             <button class="btn btn-success" type="submit">Entrar</button>
-            <button class="btn btn-link text-info" type="button"><a class="text-info" href="/signup">Criar
+            
+            <button class="btn btn-link text-info" type="button">
+                <img src="../static/images/748137.png" height="20" width="20" align="left"/> <a class="text-info" href="/signup">Criar
                     conta</a></button>
 
         </form>

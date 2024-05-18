@@ -8,76 +8,92 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <title>Cadastrar</title>
+    <title>Cadastro</title>
     <style>
         body{
           background-color: #ebeff5;
         }
+
+        .criesuaconta {
+            text-align: center;
+        }
     </style>  
 </head>
 <body>
-    <h3>Cadastro</h3>
-    {% for message in messages %}
-        <p>{{message}}</p>
-    {% endfor%}
-    <form action="/signup/" method="POST">
-    {% csrf_token %}
+
+    <div class="criesuaconta">
+         <img scr="../static/images/Logoo.png" height="100" width="100" />
+             <p>Crie sua conta</p>
+     {% for message in messages %}
+         <p>{{message}}</p>
+     {% endfor%}
+     <form action="/signup/" method="POST">
+     {% csrf_token %}
+    </div>    
+
     <div class="input-group mb-2">
         <div class="input-group-append">
             <span class="input-group-text"><i class="fas fa-user"></i></span>
         </div>
         {{form.first_name}}
     </div>
+
     <div class="input-group mb-2">
         <div class="input-group-append">
             <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
         </div>
         {{form.last_name}}
     </div>
+
     <div class="input-group mb-2">
         <div class="input-group-append">
             <span class="input-group-text"><i class="fas fa-key"></i></span>
         </div>
         {{form.username}}
     </div>
+
     <div class="input-group mb-2">
         <div class="input-group-append">
             <span class="input-group-text"><i class="fas fa-key"></i></span>
         </div>
         {{form.email}}
     </div>
+
     <div class="input-group mb-2">
         <div class="input-group-append">
             <span class="input-group-text"><i class="fas fa-key"></i></span>
         </div>
         {{form.password1}}
     </div>
+
     <div class="input-group mb-2">
         <div class="input-group-append">
             <span class="input-group-text"><i class="fas fa-key"></i></span>
         </div>
         {{form.password2}}
     </div>
+
     <div class="input-group mb-2">
         <select name="grupos" id="grupos">
             <option value="admin">Administrador</option>
             <option value="funcionario">Funcionário</option>
         </select>
     </div>
+
     {{form.errors}}
 
        <div class="d-flex justify-content-center mt-2 login_container">
-         <input class="btn login_btn" type="submit" value="Register Account">
+         <input class="btn login_btn" type="submit" value="Regitre sua conta">
        </div>
     </form>
     <script>
         var form_fields = document.getElementsByTagName('input')
-		form_fields[1].placeholder='Nome';
-		form_fields[2].placeholder='Sobrenome';
-		form_fields[3].placeholder='Nome de usuário';
-		form_fields[4].placeholder='Email.';
-        form_fields[5].placeholder='Senha';
-        form_fields[6].placeholder='Confirme sua senha';
+		form_fields[1].placeholder='Insira seu primeiro nome aqui';
+		form_fields[2].placeholder='Insira seu sobrenome aqui';
+		form_fields[3].placeholder='Insira seu nome de usuário aqui';
+		form_fields[4].placeholder='Email@email.com';
+        form_fields[5].placeholder='Insira sua senha aqui';
+        form_fields[6].placeholder='Confirme sua senha aqui';
         
 
 
