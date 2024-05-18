@@ -22,6 +22,8 @@ def signup(request):
             group = Group.objects.get(name=request.POST.get('grupos'))
             user.groups.add(group)
             messages.success(request, 'A conta foi criada com sucesso')
+            return redirect('home')
+            
 
     context = {'form':form}
     return render(request, "authentication/signup.html", context)
