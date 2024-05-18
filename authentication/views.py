@@ -20,7 +20,6 @@ def signup(request):
             user = form.save()
             group = Group.objects.get(name=request.POST.get('grupos'))
             user.groups.add(group)
-
             messages.success(request, 'A conta foi criada com sucesso')
 
     context = {'form':form}
