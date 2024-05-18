@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from .decorators import unauthenticated_user
 from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
+# arquivo
 
 @login_required()
 def home(request):
