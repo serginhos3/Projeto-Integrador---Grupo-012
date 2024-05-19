@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from .decorators import unauthenticated_user
 from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
+from .forms import TrainingForm
+from .models import Trainings
 # arquivo
 
 @login_required()
@@ -45,6 +47,17 @@ def signin(request):
         
     return render(request, "authentication/signin.html")
 
+@login_required()
+def create_training(request):
+    if request.method == 'POST':
+        form = TrainingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/treinamentos')
+        else:
+            return redirect('authentication/erros.html')
+
+
 def signout(request):
     logout(request)
     messages.success(request, "Deslogado")
@@ -52,12 +65,13 @@ def signout(request):
 
 @login_required()
 def administrador(request):
-    ##context = {'form': PdfForm()}
-    return render(request, "authentication/administrador.html")
+    form = TrainingForm()
+    return render(request, "authentication/administrador.html", {'form': form})
 
 @login_required()
 def treinamentos(request):
-    return render(request, "authentication/treinamentos.html")
+    trainings = Trainings.objects.all()  # Busca todos os treinamentos do banco de dados
+    return render(request, "authentication/treinamentos.html",  {'trainings': trainings})
 
 @login_required()
 def perfil(request):

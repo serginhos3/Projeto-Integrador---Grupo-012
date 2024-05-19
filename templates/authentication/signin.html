@@ -15,29 +15,69 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <title>Fleury Treinamento Corporativo</title>
 
     <style>
         body {
             background-color: #ebeff5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
         }
 
         #password,
         #username {
             border: none;
             border-bottom: 1px solid #848484;
-            background: #00000000;
+            background: transparent;
+            width: calc(100% - 40px);
+            display: inline-block;
         }
 
         #password:focus,
         #username:focus {
             border: none;
             outline: none;
-            border-bottom: 1px solid #848484;
+            border-bottom: 2px solid #007bff;
         }
 
-        .formulario {
+        .input-icon {
+            display: inline-block;
+            width: 30px;
             text-align: center;
+        }
+
+        .toggle-password {
+            cursor: pointer;
+        }
+
+        .alert {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 500px;
+            z-index: 1000;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
     </style>
 </head>
@@ -45,51 +85,65 @@
 <body>
 
     {% for message in messages %}
-    <div class="alert alert-{{ message.tags}} alert-dismissible fade show" role="alert">
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
         <strong>AVISO:</strong> {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     {% endfor %}
 
-    <div class="formulario">
-        <img src="../static/images/logogrupo.png" height="400" width="400" />
+    <div class="form-container">
+        <img src="../static/images/logogrupo.png" height="200" width="200" alt="Logo" />
         <form action="/signin/" method="POST">
             {% csrf_token %}
-            <div class="login">
-                <img src="https://icon-library.com/images/person-icon-red/person-icon-red-14.jpg" height="30"
-                    width="30" />
+            <div class="mb-3">
+                <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                </div>
                 <input type="text" id="username" name="username" required placeholder="Nome de usuário">
             </div>
-            <br>
-            <br>
-            <img src="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564389-lock-red_81516.png" height="30"
-                width="30" />
-            <input type="password" id="password" name="password" required placeholder="Senha">
-            <br>
-            <br>
-            <button class="btn btn-success" type="submit">Entrar</button>
-            
-            <button class="btn btn-link text-info" type="button">
-                <img src="../static/images/748137.png" height="20" width="20" align="left"/> <a class="text-info" href="/signup">Criar
-                    conta</a></button>
-
+            <div class="mb-3 position-relative">
+                <div class="input-icon left">
+                    <i class="fas fa-user"></i>
+                </div>
+                <input type="password" id="password" name="password" required placeholder="Senha">
+                <div class="input-icon toggle-password right" style="
+                position: absolute;
+                right: -3px;
+                ">
+                    <i class="fas fa-eye"></i>
+                </div>
+            </div>
+            <div class="d-flex flex-column gap-4">
+                <button class="btn btn-danger w-100" type="submit">Entrar</button>
+                <a class="btn btn-outline-danger w-100" href="/signup">
+                    <img src="../static/images/748137.png" height="20" width="20" alt="Create Account Icon" />
+                    Criar conta
+                </a>
+            </div>
         </form>
     </div>
 
-
-
     <script>
-
         setTimeout(function () {
-
-            
-            const button = document.querySelector(".alert");
-            button.style.display = "none";
-
+            const alert = document.querySelector(".alert");
+            if (alert) {
+                alert.style.display = "none";
+            }
         }, 5000);
 
+        document.querySelector('.toggle-password').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const icon = this.querySelector('i');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
     </script>
 </body>
 
