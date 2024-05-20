@@ -93,7 +93,7 @@
         <a href="/">Início</a>
         {% for group in user.groups.all %}
         {% if group.name == 'admin' %}
-        <a href="/administrador">Admin</a>
+        <a href="/administrador">Criar Treinamento</a>
         {% endif %}
         {% endfor %}
         <a href="/treinamentos">Treinamentos</a>
@@ -124,28 +124,28 @@
 
 
           <div class="mt-5 mb-3">
-            <label for="id_title" class="form-label">Title:</label>
+            <label for="id_title" class="form-label">Titulo:</label>
             {{ form.title }}
           </div>
           <div class="mb-3">
-            <label for="id_description" class="form-label">Description:</label>
+            <label for="id_description" class="form-label">Descricao:</label>
             {{ form.description }}
           </div>
           <div class="mb-3">
-            <label for="id_video_link" class="form-label">Video Link:</label>
+            <label for="id_video_link" class="form-label">Link:</label>
             {{ form.video_link }}
           </div>
           <div class="mb-3">
-            <label for="id_start_date" class="form-label">Start Date:</label>
+            <label for="id_start_date" class="form-label">Data de inicio:</label>
             <input type="date" name="start_date" required="" id="id_start_date">
           </div>
           <div class="mb-3">
-            <label for="id_end_date" class="form-label">End Date:</label>
+            <label for="id_end_date" class="form-label">Data Final:</label>
             <input type="date" name="end_date" required="" id="id_end_date">
           </div>
           {{ form.errors }}
 
-          <button type="submit" class="btn btn-success w-100">SALVAR CURSO</button>
+          <button type="submit" class="btn btn-success w-100">SALVAR TREINAMENTO</button>
         </form>
       </div>
     </div>
