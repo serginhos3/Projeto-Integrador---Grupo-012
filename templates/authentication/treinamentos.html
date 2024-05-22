@@ -47,7 +47,7 @@
         <a href="/">Início</a>
         {% for group in user.groups.all %}
         {% if group.name == 'admin' %}
-        <a href="/administrador">Admin</a>
+        <a href="/administrador">Criar treinamento</a>
         {% endif %}
         {% endfor %}
         <a href="">Treinamentos</a>
@@ -74,14 +74,14 @@
           <h5 class="card-title">{{training.title}}</h5>
           <p class="card-text">{{training.description}}</p>
         </div>
-        <ul class="list-group list-group-flush">
+        <!-- <ul class="list-group list-group-flush">
           <li class="list-group-item">An item</li>
           <li class="list-group-item">A second item</li>
           <li class="list-group-item">A third item</li>
-        </ul>
+        </ul> -->
         
         <div class="card-body">
-          <a href={{training.video_link}} class="card-link">Acesse o treinamento</a>
+          <a href={{training.video_link}} class="card-link">Acesse o treinamento clicando aqui!</a>
           <!-- <a href="#" class="card-link">Another link</a> -->
         </div>
       </div>
