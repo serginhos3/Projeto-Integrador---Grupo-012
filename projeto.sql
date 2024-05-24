@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/05/2024 às 03:16
+-- Tempo de geração: 24/05/2024 às 04:11
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -47,13 +47,6 @@ CREATE TABLE `authentication_trainings` (
   `created_at` datetime(6) NOT NULL,
   `updated_at` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `authentication_trainings`
---
-
-INSERT INTO `authentication_trainings` (`id`, `title`, `description`, `video_link`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES
-(23, 'Teste 1', 'Essa é a descrição do teste 1.', 'https://login.univesp.br/simplesaml/module.php/core/loginuserpass.php?AuthState=_f76cd8947a72677457a939bb9e080b3bf97333aa79%3Ahttps%3A%2F%2Flogin.univesp.br%2Fsimplesaml%2Fsaml2%2Fidp%2FSSOService.php', '2024-05-22', '2024-05-22', '2024-05-22 14:58:37.244143', '2024-05-22 14:58:37.244143');
 
 -- --------------------------------------------------------
 
@@ -166,8 +159,7 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(6, 'pbkdf2_sha256$720000$lxNH8yJ267A4bYzmuziEq8$BvVCYMtBCt97hI710zqbapBD3PrUKdVMp7uuY1XZjz4=', '2024-05-23 01:30:20.561757', 0, 'sergio.magalhaes', 'Sérgio', 'Magalhães', 'sergiomagalhaesfilho@hotmail.com', 0, 1, '2024-05-18 02:22:31.743145'),
-(13, 'pbkdf2_sha256$720000$IFtDouR3GuSZVKYyh8nyXf$3EJbNrXV8jwpzLUHuHANYMyGXYzrDelViJJ6Wt5PvbI=', '2024-05-23 03:30:46.149229', 0, 'teste.teste', 'teste', 'teste', 'teste@hotmail.com', 0, 1, '2024-05-23 03:30:39.194728');
+(6, 'pbkdf2_sha256$720000$lxNH8yJ267A4bYzmuziEq8$BvVCYMtBCt97hI710zqbapBD3PrUKdVMp7uuY1XZjz4=', '2024-05-24 02:07:04.470866', 0, 'sergio.magalhaes', 'Sérgio', 'Magalhães', 'sergiomagalhaesfilho@hotmail.com', 0, 1, '2024-05-18 02:22:31.743145');
 
 -- --------------------------------------------------------
 
@@ -186,8 +178,7 @@ CREATE TABLE `auth_user_groups` (
 --
 
 INSERT INTO `auth_user_groups` (`id`, `user_id`, `group_id`) VALUES
-(4, 6, 1),
-(11, 13, 2);
+(4, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -301,8 +292,8 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('s2kjntn6ionosc9f0ojaxgacv6hgm7se', '.eJxVjDsOwjAQBe_iGllO1p-Ykj5nsNZrLw4gR4qTCnF3EikFtG9m3lsE3NYStpaXMCVxFSAuv1tEeuZ6gPTAep8lzXVdpigPRZ60yXFO-XU73b-Dgq3sdeTsWaHSvSXgjMYr7Xw05D047ThbA0NnbUrsgGjogFj3sDM0AJjE5wvpHje2:1s89EP:qo8Iyqry3YC79tIWw-dwiRwBW3NKn4jeuPtJzQz-fpM', '2024-06-01 01:51:29.383082'),
-('x99skrwc0t3itjz92i7d169jh42hkpi6', '.eJxVjDEOwjAMRe-SGUVOnMSYkZ0zVE4caAG1UtNOiLtDpQ6w_vfef5lO1qXv1lbnblBzMg7N4XfMUh513IjeZbxNtkzjMg_ZbordabOXSevzvLt_B720_ltnSiV5uaKLkSk6OSIJpOSD0xpKJK1eMRMhBIbEjAUZACpLQiA17w_fbDa3:1s9zAE:mtlS9sS4kJC9sdK1T7H3hMBp1zd2htX8QJhbi1_AIHQ', '2024-06-06 03:30:46.155510');
+('a7cs4yk25krbwb6pon13v0rkvddkpvoq', '.eJxVjEEOwiAQRe_C2pBp6TDg0n3PQAYGpWpoUtqV8e7apAvd_vfef6nA21rC1vISJlFnZdXpd4ucHrnuQO5cb7NOc12XKepd0QdtepwlPy-H-3dQuJVvTVfTiQgigST2yYF4GjrjEYEgkRViodgjDB56sMLOOAuQGZ2JmNT7A9LDNxU:1sAKKm:HC1Z9J6yeHQ3ScUGnKiwLAx4S5spIATog7oxMpp4opQ', '2024-06-07 02:07:04.476013'),
+('s2kjntn6ionosc9f0ojaxgacv6hgm7se', '.eJxVjDsOwjAQBe_iGllO1p-Ykj5nsNZrLw4gR4qTCnF3EikFtG9m3lsE3NYStpaXMCVxFSAuv1tEeuZ6gPTAep8lzXVdpigPRZ60yXFO-XU73b-Dgq3sdeTsWaHSvSXgjMYr7Xw05D047ThbA0NnbUrsgGjogFj3sDM0AJjE5wvpHje2:1s89EP:qo8Iyqry3YC79tIWw-dwiRwBW3NKn4jeuPtJzQz-fpM', '2024-06-01 01:51:29.383082');
 
 --
 -- Índices para tabelas despejadas
@@ -407,7 +398,7 @@ ALTER TABLE `authentication_files`
 -- AUTO_INCREMENT de tabela `authentication_trainings`
 --
 ALTER TABLE `authentication_trainings`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `auth_group`
