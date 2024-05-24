@@ -36,5 +36,7 @@ choco install python
 7. Executar o servidor Django:
 `
 python manage.py runserver
-
 `
+8. O serviço estará disponível na porta 8000.
+
+
